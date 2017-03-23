@@ -1,6 +1,6 @@
 # OrderManagementApi
 
-All URIs are relative to *https://api.cielo.com.br/order-management/v1*
+All URIs are relative to *https://api.cielo.com.br/sandbox-lio/order-management/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,9 +27,31 @@ Recurso responsável por efetuar a inclusão de um novo item em um pedido.
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.OrderManagementApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
+// Configure API key authorization: access-token
+ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
+access-token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access-token.setApiKeyPrefix("Token");
+
+// Configure API key authorization: client-id
+ApiKeyAuth client-id = (ApiKeyAuth) defaultClient.getAuthentication("client-id");
+client-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//client-id.setApiKeyPrefix("Token");
 
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -62,7 +84,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
 
 ### HTTP request headers
 
@@ -80,9 +102,31 @@ Recurso responsável por efetuar a criação de um pedido.
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.OrderManagementApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
+// Configure API key authorization: access-token
+ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
+access-token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access-token.setApiKeyPrefix("Token");
+
+// Configure API key authorization: client-id
+ApiKeyAuth client-id = (ApiKeyAuth) defaultClient.getAuthentication("client-id");
+client-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//client-id.setApiKeyPrefix("Token");
 
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -113,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
 
 ### HTTP request headers
 
@@ -131,9 +175,31 @@ Recurso responsável por efetuar a exclusão de um pedido.
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.OrderManagementApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
+// Configure API key authorization: access-token
+ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
+access-token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access-token.setApiKeyPrefix("Token");
+
+// Configure API key authorization: client-id
+ApiKeyAuth client-id = (ApiKeyAuth) defaultClient.getAuthentication("client-id");
+client-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//client-id.setApiKeyPrefix("Token");
 
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -163,7 +229,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
 
 ### HTTP request headers
 
@@ -181,9 +247,31 @@ Recurso responsável por efetuar a exclusão de um item de um pedido.
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.OrderManagementApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
+// Configure API key authorization: access-token
+ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
+access-token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access-token.setApiKeyPrefix("Token");
+
+// Configure API key authorization: client-id
+ApiKeyAuth client-id = (ApiKeyAuth) defaultClient.getAuthentication("client-id");
+client-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//client-id.setApiKeyPrefix("Token");
 
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -216,7 +304,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
 
 ### HTTP request headers
 
@@ -234,9 +322,31 @@ Recurso responsável por efetuar a consulta de um pedido.
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.OrderManagementApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
+// Configure API key authorization: access-token
+ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
+access-token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access-token.setApiKeyPrefix("Token");
+
+// Configure API key authorization: client-id
+ApiKeyAuth client-id = (ApiKeyAuth) defaultClient.getAuthentication("client-id");
+client-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//client-id.setApiKeyPrefix("Token");
 
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -267,7 +377,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
 
 ### HTTP request headers
 
@@ -285,9 +395,31 @@ Recurso responsável por efetuar a consulta de pedidos, com a possibilidade de a
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.OrderManagementApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
+// Configure API key authorization: access-token
+ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
+access-token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access-token.setApiKeyPrefix("Token");
+
+// Configure API key authorization: client-id
+ApiKeyAuth client-id = (ApiKeyAuth) defaultClient.getAuthentication("client-id");
+client-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//client-id.setApiKeyPrefix("Token");
 
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -317,7 +449,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
 
 ### HTTP request headers
 
@@ -335,9 +467,31 @@ Recurso responsável por efetuar a consulta de um item em um pedido.
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.OrderManagementApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
+// Configure API key authorization: access-token
+ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
+access-token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access-token.setApiKeyPrefix("Token");
+
+// Configure API key authorization: client-id
+ApiKeyAuth client-id = (ApiKeyAuth) defaultClient.getAuthentication("client-id");
+client-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//client-id.setApiKeyPrefix("Token");
 
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -368,7 +522,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
 
 ### HTTP request headers
 
@@ -386,9 +540,31 @@ Recurso responsável por efetuar a consulta das transações de um pedido.
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.OrderManagementApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
+// Configure API key authorization: access-token
+ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
+access-token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access-token.setApiKeyPrefix("Token");
+
+// Configure API key authorization: client-id
+ApiKeyAuth client-id = (ApiKeyAuth) defaultClient.getAuthentication("client-id");
+client-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//client-id.setApiKeyPrefix("Token");
 
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -419,7 +595,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
 
 ### HTTP request headers
 
@@ -437,9 +613,31 @@ Recurso responsável por efetuar o cancelamento de um pedido.
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.OrderManagementApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
+// Configure API key authorization: access-token
+ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
+access-token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access-token.setApiKeyPrefix("Token");
+
+// Configure API key authorization: client-id
+ApiKeyAuth client-id = (ApiKeyAuth) defaultClient.getAuthentication("client-id");
+client-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//client-id.setApiKeyPrefix("Token");
 
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -471,7 +669,7 @@ null (empty response body)
 
 ### Authorization
 
-No authorization required
+[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
 
 ### HTTP request headers
 
@@ -489,9 +687,31 @@ Recurso responsável por efetuar a alteração de um item de um pedido.
 ### Example
 ```java
 // Import classes:
+//import io.swagger.client.ApiClient;
 //import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
 //import io.swagger.client.api.OrderManagementApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
+// Configure API key authorization: access-token
+ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
+access-token.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//access-token.setApiKeyPrefix("Token");
+
+// Configure API key authorization: client-id
+ApiKeyAuth client-id = (ApiKeyAuth) defaultClient.getAuthentication("client-id");
+client-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//client-id.setApiKeyPrefix("Token");
 
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -526,7 +746,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
 
 ### HTTP request headers
 

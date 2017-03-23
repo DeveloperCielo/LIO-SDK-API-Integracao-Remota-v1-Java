@@ -69,7 +69,26 @@ import java.util.*;
 public class OrderManagementApiExample {
 
     public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
         
+        // Configure API key authorization: merchant-id
+        ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+        merchant-id.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //merchant-id.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: access-token
+        ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
+        access-token.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //access-token.setApiKeyPrefix("Token");
+
+        // Configure API key authorization: client-id
+        ApiKeyAuth client-id = (ApiKeyAuth) defaultClient.getAuthentication("client-id");
+        client-id.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //client-id.setApiKeyPrefix("Token");
+
         OrderManagementApi apiInstance = new OrderManagementApi();
         String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
         String accessToken = "accessToken_example"; // String | Token de acesso (Access Token) gerado durante o processo de cadastro.
@@ -90,7 +109,7 @@ public class OrderManagementApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.cielo.com.br/order-management/v1*
+All URIs are relative to *https://api.cielo.com.br/sandbox-lio/order-management/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -121,16 +140,16 @@ Class | Method | HTTP request | Description
 ## Documentation for Authorization
 
 Authentication schemes defined for the API:
-### client_id
+### access-token
 
 - **Type**: API key
-- **API key parameter name**: client_id
+- **API key parameter name**: access-token
 - **Location**: HTTP header
 
-### access_token
+### client-id
 
 - **Type**: API key
-- **API key parameter name**: access_token
+- **API key parameter name**: client-id
 - **Location**: HTTP header
 
 ### merchant-id
@@ -142,7 +161,7 @@ Authentication schemes defined for the API:
 
 ## Recommendation
 
-It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issue.
+It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
 ## Author
 
