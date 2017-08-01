@@ -1,5 +1,5 @@
 
-# Card
+# OrdersCard
 
 ## Properties
 Name | Type | Description | Notes

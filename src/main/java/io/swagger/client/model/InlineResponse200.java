@@ -29,10 +29,10 @@ import java.util.List;
 import org.joda.time.DateTime;
 
 /**
- * Order
+ * InlineResponse200
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-28T14:20:55.281Z")
-public class Order {
+public class InlineResponse200 {
   @SerializedName("id")
   private String id = null;
 
@@ -125,7 +125,7 @@ public class Order {
   @SerializedName("remaining")
   private Integer remaining = null;
 
-  public Order id(String id) {
+  public InlineResponse200 id(String id) {
     this.id = id;
     return this;
   }
@@ -143,7 +143,7 @@ public class Order {
     this.id = id;
   }
 
-  public Order number(String number) {
+  public InlineResponse200 number(String number) {
     this.number = number;
     return this;
   }
@@ -161,7 +161,7 @@ public class Order {
     this.number = number;
   }
 
-  public Order reference(String reference) {
+  public InlineResponse200 reference(String reference) {
     this.reference = reference;
     return this;
   }
@@ -179,7 +179,7 @@ public class Order {
     this.reference = reference;
   }
 
-  public Order status(StatusEnum status) {
+  public InlineResponse200 status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -197,7 +197,7 @@ public class Order {
     this.status = status;
   }
 
-  public Order createdAt(DateTime createdAt) {
+  public InlineResponse200 createdAt(DateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -215,7 +215,7 @@ public class Order {
     this.createdAt = createdAt;
   }
 
-  public Order updatedAt(DateTime updatedAt) {
+  public InlineResponse200 updatedAt(DateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -233,12 +233,12 @@ public class Order {
     this.updatedAt = updatedAt;
   }
 
-  public Order items(List<OrdersItems> items) {
+  public InlineResponse200 items(List<OrdersItems> items) {
     this.items = items;
     return this;
   }
 
-  public Order addItemsItem(OrdersItems itemsItem) {
+  public InlineResponse200 addItemsItem(OrdersItems itemsItem) {
     this.items.add(itemsItem);
     return this;
   }
@@ -256,7 +256,7 @@ public class Order {
     this.items = items;
   }
 
-  public Order notes(String notes) {
+  public InlineResponse200 notes(String notes) {
     this.notes = notes;
     return this;
   }
@@ -274,12 +274,12 @@ public class Order {
     this.notes = notes;
   }
 
-  public Order transactions(List<OrdersTransactions> transactions) {
+  public InlineResponse200 transactions(List<OrdersTransactions> transactions) {
     this.transactions = transactions;
     return this;
   }
 
-  public Order addTransactionsItem(OrdersTransactions transactionsItem) {
+  public InlineResponse200 addTransactionsItem(OrdersTransactions transactionsItem) {
     this.transactions.add(transactionsItem);
     return this;
   }
@@ -297,7 +297,7 @@ public class Order {
     this.transactions = transactions;
   }
 
-  public Order price(Integer price) {
+  public InlineResponse200 price(Integer price) {
     this.price = price;
     return this;
   }
@@ -315,7 +315,7 @@ public class Order {
     this.price = price;
   }
 
-  public Order remaining(Integer remaining) {
+  public InlineResponse200 remaining(Integer remaining) {
     this.remaining = remaining;
     return this;
   }
@@ -342,18 +342,18 @@ public class Order {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Order order = (Order) o;
-    return Objects.equals(this.id, order.id) &&
-        Objects.equals(this.number, order.number) &&
-        Objects.equals(this.reference, order.reference) &&
-        Objects.equals(this.status, order.status) &&
-        Objects.equals(this.createdAt, order.createdAt) &&
-        Objects.equals(this.updatedAt, order.updatedAt) &&
-        Objects.equals(this.items, order.items) &&
-        Objects.equals(this.notes, order.notes) &&
-        Objects.equals(this.transactions, order.transactions) &&
-        Objects.equals(this.price, order.price) &&
-        Objects.equals(this.remaining, order.remaining);
+    InlineResponse200 inlineResponse200 = (InlineResponse200) o;
+    return Objects.equals(this.id, inlineResponse200.id) &&
+        Objects.equals(this.number, inlineResponse200.number) &&
+        Objects.equals(this.reference, inlineResponse200.reference) &&
+        Objects.equals(this.status, inlineResponse200.status) &&
+        Objects.equals(this.createdAt, inlineResponse200.createdAt) &&
+        Objects.equals(this.updatedAt, inlineResponse200.updatedAt) &&
+        Objects.equals(this.items, inlineResponse200.items) &&
+        Objects.equals(this.notes, inlineResponse200.notes) &&
+        Objects.equals(this.transactions, inlineResponse200.transactions) &&
+        Objects.equals(this.price, inlineResponse200.price) &&
+        Objects.equals(this.remaining, inlineResponse200.remaining);
   }
 
   @Override
@@ -365,7 +365,7 @@ public class Order {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Order {\n");
+    sb.append("class InlineResponse200 {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");

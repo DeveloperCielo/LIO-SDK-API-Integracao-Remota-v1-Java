@@ -29,10 +29,10 @@ import java.util.List;
 import org.joda.time.DateTime;
 
 /**
- * Order
+ * Body
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-28T14:20:55.281Z")
-public class Order {
+public class Body {
   @SerializedName("id")
   private String id = null;
 
@@ -125,7 +125,7 @@ public class Order {
   @SerializedName("remaining")
   private Integer remaining = null;
 
-  public Order id(String id) {
+  public Body id(String id) {
     this.id = id;
     return this;
   }
@@ -143,7 +143,7 @@ public class Order {
     this.id = id;
   }
 
-  public Order number(String number) {
+  public Body number(String number) {
     this.number = number;
     return this;
   }
@@ -161,7 +161,7 @@ public class Order {
     this.number = number;
   }
 
-  public Order reference(String reference) {
+  public Body reference(String reference) {
     this.reference = reference;
     return this;
   }
@@ -179,7 +179,7 @@ public class Order {
     this.reference = reference;
   }
 
-  public Order status(StatusEnum status) {
+  public Body status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -197,7 +197,7 @@ public class Order {
     this.status = status;
   }
 
-  public Order createdAt(DateTime createdAt) {
+  public Body createdAt(DateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -215,7 +215,7 @@ public class Order {
     this.createdAt = createdAt;
   }
 
-  public Order updatedAt(DateTime updatedAt) {
+  public Body updatedAt(DateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -233,12 +233,12 @@ public class Order {
     this.updatedAt = updatedAt;
   }
 
-  public Order items(List<OrdersItems> items) {
+  public Body items(List<OrdersItems> items) {
     this.items = items;
     return this;
   }
 
-  public Order addItemsItem(OrdersItems itemsItem) {
+  public Body addItemsItem(OrdersItems itemsItem) {
     this.items.add(itemsItem);
     return this;
   }
@@ -256,7 +256,7 @@ public class Order {
     this.items = items;
   }
 
-  public Order notes(String notes) {
+  public Body notes(String notes) {
     this.notes = notes;
     return this;
   }
@@ -274,12 +274,12 @@ public class Order {
     this.notes = notes;
   }
 
-  public Order transactions(List<OrdersTransactions> transactions) {
+  public Body transactions(List<OrdersTransactions> transactions) {
     this.transactions = transactions;
     return this;
   }
 
-  public Order addTransactionsItem(OrdersTransactions transactionsItem) {
+  public Body addTransactionsItem(OrdersTransactions transactionsItem) {
     this.transactions.add(transactionsItem);
     return this;
   }
@@ -297,7 +297,7 @@ public class Order {
     this.transactions = transactions;
   }
 
-  public Order price(Integer price) {
+  public Body price(Integer price) {
     this.price = price;
     return this;
   }
@@ -315,7 +315,7 @@ public class Order {
     this.price = price;
   }
 
-  public Order remaining(Integer remaining) {
+  public Body remaining(Integer remaining) {
     this.remaining = remaining;
     return this;
   }
@@ -342,18 +342,18 @@ public class Order {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Order order = (Order) o;
-    return Objects.equals(this.id, order.id) &&
-        Objects.equals(this.number, order.number) &&
-        Objects.equals(this.reference, order.reference) &&
-        Objects.equals(this.status, order.status) &&
-        Objects.equals(this.createdAt, order.createdAt) &&
-        Objects.equals(this.updatedAt, order.updatedAt) &&
-        Objects.equals(this.items, order.items) &&
-        Objects.equals(this.notes, order.notes) &&
-        Objects.equals(this.transactions, order.transactions) &&
-        Objects.equals(this.price, order.price) &&
-        Objects.equals(this.remaining, order.remaining);
+    Body body = (Body) o;
+    return Objects.equals(this.id, body.id) &&
+        Objects.equals(this.number, body.number) &&
+        Objects.equals(this.reference, body.reference) &&
+        Objects.equals(this.status, body.status) &&
+        Objects.equals(this.createdAt, body.createdAt) &&
+        Objects.equals(this.updatedAt, body.updatedAt) &&
+        Objects.equals(this.items, body.items) &&
+        Objects.equals(this.notes, body.notes) &&
+        Objects.equals(this.transactions, body.transactions) &&
+        Objects.equals(this.price, body.price) &&
+        Objects.equals(this.remaining, body.remaining);
   }
 
   @Override
@@ -365,7 +365,7 @@ public class Order {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Order {\n");
+    sb.append("class Body {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");

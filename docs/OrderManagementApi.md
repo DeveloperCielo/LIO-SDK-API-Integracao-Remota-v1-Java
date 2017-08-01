@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 <a name="orderAddItem"></a>
 # **orderAddItem**
-> Response orderAddItem(clientId, accessToken, merchantId, id, body)
+> InlineResponse201 orderAddItem(clientId, accessToken, merchantId, id, body)
 
 
 
@@ -35,12 +35,6 @@ Recurso responsável por efetuar a inclusão de um novo item em um pedido.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: merchant-id
-ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
-merchant-id.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//merchant-id.setApiKeyPrefix("Token");
-
 // Configure API key authorization: access-token
 ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
 access-token.setApiKey("YOUR API KEY");
@@ -53,14 +47,20 @@ client-id.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //client-id.setApiKeyPrefix("Token");
 
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
 String accessToken = "accessToken_example"; // String | Token de acesso (Access Token) gerado durante o processo de cadastro.
 String merchantId = "merchantId_example"; // String | Identificador do estabelecimento comercial gerado durante o processo de cadastro.
 String id = "id_example"; // String | Identificador do pedido.
-OrderItem body = new OrderItem(); // OrderItem | 
+Body1 body = new Body1(); // Body1 | 
 try {
-    Response result = apiInstance.orderAddItem(clientId, accessToken, merchantId, id, body);
+    InlineResponse201 result = apiInstance.orderAddItem(clientId, accessToken, merchantId, id, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderManagementApi#orderAddItem");
@@ -76,15 +76,15 @@ Name | Type | Description  | Notes
  **accessToken** | **String**| Token de acesso (Access Token) gerado durante o processo de cadastro. |
  **merchantId** | **String**| Identificador do estabelecimento comercial gerado durante o processo de cadastro. |
  **id** | **String**| Identificador do pedido. |
- **body** | [**OrderItem**](OrderItem.md)|  |
+ **body** | [**Body1**](Body1.md)|  |
 
 ### Return type
 
-[**Response**](Response.md)
+[**InlineResponse201**](InlineResponse201.md)
 
 ### Authorization
 
-[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
+[access-token](../README.md#access-token), [client-id](../README.md#client-id), [merchant-id](../README.md#merchant-id)
 
 ### HTTP request headers
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 <a name="orderCreate"></a>
 # **orderCreate**
-> Response orderCreate(clientId, accessToken, merchantId, body)
+> InlineResponse201 orderCreate(clientId, accessToken, merchantId, body)
 
 
 
@@ -110,12 +110,6 @@ Recurso responsável por efetuar a criação de um pedido.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: merchant-id
-ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
-merchant-id.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//merchant-id.setApiKeyPrefix("Token");
-
 // Configure API key authorization: access-token
 ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
 access-token.setApiKey("YOUR API KEY");
@@ -128,13 +122,19 @@ client-id.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //client-id.setApiKeyPrefix("Token");
 
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
 String accessToken = "accessToken_example"; // String | Token de acesso (Access Token) gerado durante o processo de cadastro.
 String merchantId = "merchantId_example"; // String | Identificador do estabelecimento comercial gerado durante o processo de cadastro.
-Order body = new Order(); // Order | 
+Body body = new Body(); // Body | 
 try {
-    Response result = apiInstance.orderCreate(clientId, accessToken, merchantId, body);
+    InlineResponse201 result = apiInstance.orderCreate(clientId, accessToken, merchantId, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderManagementApi#orderCreate");
@@ -149,15 +149,15 @@ Name | Type | Description  | Notes
  **clientId** | **String**| Token da aplicação (APP Token) gerado durante o processo de cadastro. |
  **accessToken** | **String**| Token de acesso (Access Token) gerado durante o processo de cadastro. |
  **merchantId** | **String**| Identificador do estabelecimento comercial gerado durante o processo de cadastro. |
- **body** | [**Order**](Order.md)|  |
+ **body** | [**Body**](Body.md)|  |
 
 ### Return type
 
-[**Response**](Response.md)
+[**InlineResponse201**](InlineResponse201.md)
 
 ### Authorization
 
-[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
+[access-token](../README.md#access-token), [client-id](../README.md#client-id), [merchant-id](../README.md#merchant-id)
 
 ### HTTP request headers
 
@@ -183,12 +183,6 @@ Recurso responsável por efetuar a exclusão de um pedido.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: merchant-id
-ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
-merchant-id.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//merchant-id.setApiKeyPrefix("Token");
-
 // Configure API key authorization: access-token
 ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
 access-token.setApiKey("YOUR API KEY");
@@ -200,6 +194,12 @@ ApiKeyAuth client-id = (ApiKeyAuth) defaultClient.getAuthentication("client-id")
 client-id.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //client-id.setApiKeyPrefix("Token");
+
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
 
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -229,7 +229,7 @@ null (empty response body)
 
 ### Authorization
 
-[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
+[access-token](../README.md#access-token), [client-id](../README.md#client-id), [merchant-id](../README.md#merchant-id)
 
 ### HTTP request headers
 
@@ -238,7 +238,7 @@ null (empty response body)
 
 <a name="orderDeleteItem"></a>
 # **orderDeleteItem**
-> Response orderDeleteItem(clientId, accessToken, merchantId, id, itemId)
+> InlineResponse201 orderDeleteItem(clientId, accessToken, merchantId, id, itemId)
 
 
 
@@ -255,12 +255,6 @@ Recurso responsável por efetuar a exclusão de um item de um pedido.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: merchant-id
-ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
-merchant-id.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//merchant-id.setApiKeyPrefix("Token");
-
 // Configure API key authorization: access-token
 ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
 access-token.setApiKey("YOUR API KEY");
@@ -273,6 +267,12 @@ client-id.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //client-id.setApiKeyPrefix("Token");
 
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
 String accessToken = "accessToken_example"; // String | Token de acesso (Access Token) gerado durante o processo de cadastro.
@@ -280,7 +280,7 @@ String merchantId = "merchantId_example"; // String | Identificador do estabelec
 String id = "id_example"; // String | Identificador do pedido.
 String itemId = "itemId_example"; // String | Identificador do item do pedido.
 try {
-    Response result = apiInstance.orderDeleteItem(clientId, accessToken, merchantId, id, itemId);
+    InlineResponse201 result = apiInstance.orderDeleteItem(clientId, accessToken, merchantId, id, itemId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderManagementApi#orderDeleteItem");
@@ -300,11 +300,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Response**](Response.md)
+[**InlineResponse201**](InlineResponse201.md)
 
 ### Authorization
 
-[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
+[access-token](../README.md#access-token), [client-id](../README.md#client-id), [merchant-id](../README.md#merchant-id)
 
 ### HTTP request headers
 
@@ -313,7 +313,7 @@ Name | Type | Description  | Notes
 
 <a name="orderGet"></a>
 # **orderGet**
-> Order orderGet(clientId, accessToken, merchantId, id)
+> InlineResponse200 orderGet(clientId, accessToken, merchantId, id)
 
 
 
@@ -330,12 +330,6 @@ Recurso responsável por efetuar a consulta de um pedido.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: merchant-id
-ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
-merchant-id.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//merchant-id.setApiKeyPrefix("Token");
-
 // Configure API key authorization: access-token
 ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
 access-token.setApiKey("YOUR API KEY");
@@ -348,13 +342,19 @@ client-id.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //client-id.setApiKeyPrefix("Token");
 
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
 String accessToken = "accessToken_example"; // String | Token de acesso (Access Token) gerado durante o processo de cadastro.
 String merchantId = "merchantId_example"; // String | Identificador do estabelecimento comercial gerado durante o processo de cadastro.
 String id = "id_example"; // String | Identificador do pedido.
 try {
-    Order result = apiInstance.orderGet(clientId, accessToken, merchantId, id);
+    InlineResponse200 result = apiInstance.orderGet(clientId, accessToken, merchantId, id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderManagementApi#orderGet");
@@ -373,11 +373,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Order**](Order.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
-[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
+[access-token](../README.md#access-token), [client-id](../README.md#client-id), [merchant-id](../README.md#merchant-id)
 
 ### HTTP request headers
 
@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
 
 <a name="orderGetByParameters"></a>
 # **orderGetByParameters**
-> orderGetByParameters(clientId, accessToken, merchantId, parameters)
+> List&lt;InlineResponse200&gt; orderGetByParameters(clientId, accessToken, merchantId, parameters)
 
 
 
@@ -403,12 +403,6 @@ Recurso responsável por efetuar a consulta de pedidos, com a possibilidade de a
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: merchant-id
-ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
-merchant-id.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//merchant-id.setApiKeyPrefix("Token");
-
 // Configure API key authorization: access-token
 ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
 access-token.setApiKey("YOUR API KEY");
@@ -421,13 +415,20 @@ client-id.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //client-id.setApiKeyPrefix("Token");
 
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
 String accessToken = "accessToken_example"; // String | Token de acesso (Access Token) gerado durante o processo de cadastro.
 String merchantId = "merchantId_example"; // String | Identificador do estabelecimento comercial gerado durante o processo de cadastro.
 String parameters = "parameters_example"; // String | Parâmetros para filtrar a consulta. Os possíveis parâmetros são: number (Número do pedidos), reference (Referência do pedido) e status (Status do pedidos: DRAFT, ENTERED, CANCELED, PAID, APPROVED, REJECTED, RE-ENTERED e CLOSED).
 try {
-    apiInstance.orderGetByParameters(clientId, accessToken, merchantId, parameters);
+    List<InlineResponse200> result = apiInstance.orderGetByParameters(clientId, accessToken, merchantId, parameters);
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderManagementApi#orderGetByParameters");
     e.printStackTrace();
@@ -445,11 +446,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**List&lt;InlineResponse200&gt;**](InlineResponse200.md)
 
 ### Authorization
 
-[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
+[access-token](../README.md#access-token), [client-id](../README.md#client-id), [merchant-id](../README.md#merchant-id)
 
 ### HTTP request headers
 
@@ -458,7 +459,7 @@ null (empty response body)
 
 <a name="orderGetItem"></a>
 # **orderGetItem**
-> OrderItem orderGetItem(clientId, accessToken, merchantId, id)
+> OrdersItems orderGetItem(clientId, accessToken, merchantId, id)
 
 
 
@@ -475,12 +476,6 @@ Recurso responsável por efetuar a consulta de um item em um pedido.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: merchant-id
-ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
-merchant-id.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//merchant-id.setApiKeyPrefix("Token");
-
 // Configure API key authorization: access-token
 ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
 access-token.setApiKey("YOUR API KEY");
@@ -493,13 +488,19 @@ client-id.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //client-id.setApiKeyPrefix("Token");
 
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
 String accessToken = "accessToken_example"; // String | Token de acesso (Access Token) gerado durante o processo de cadastro.
 String merchantId = "merchantId_example"; // String | Identificador do estabelecimento comercial gerado durante o processo de cadastro.
 String id = "id_example"; // String | Identificador do pedido.
 try {
-    OrderItem result = apiInstance.orderGetItem(clientId, accessToken, merchantId, id);
+    OrdersItems result = apiInstance.orderGetItem(clientId, accessToken, merchantId, id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderManagementApi#orderGetItem");
@@ -518,11 +519,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderItem**](OrderItem.md)
+[**OrdersItems**](OrdersItems.md)
 
 ### Authorization
 
-[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
+[access-token](../README.md#access-token), [client-id](../README.md#client-id), [merchant-id](../README.md#merchant-id)
 
 ### HTTP request headers
 
@@ -531,7 +532,7 @@ Name | Type | Description  | Notes
 
 <a name="orderGetTransactions"></a>
 # **orderGetTransactions**
-> Transaction orderGetTransactions(clientId, accessToken, merchantId, id)
+> OrdersTransactions orderGetTransactions(clientId, accessToken, merchantId, id)
 
 
 
@@ -548,12 +549,6 @@ Recurso responsável por efetuar a consulta das transações de um pedido.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: merchant-id
-ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
-merchant-id.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//merchant-id.setApiKeyPrefix("Token");
-
 // Configure API key authorization: access-token
 ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
 access-token.setApiKey("YOUR API KEY");
@@ -566,13 +561,19 @@ client-id.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //client-id.setApiKeyPrefix("Token");
 
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
 String accessToken = "accessToken_example"; // String | Token de acesso (Access Token) gerado durante o processo de cadastro.
 String merchantId = "merchantId_example"; // String | Identificador do estabelecimento comercial gerado durante o processo de cadastro.
 String id = "id_example"; // String | Identificador do pedido.
 try {
-    Transaction result = apiInstance.orderGetTransactions(clientId, accessToken, merchantId, id);
+    OrdersTransactions result = apiInstance.orderGetTransactions(clientId, accessToken, merchantId, id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderManagementApi#orderGetTransactions");
@@ -591,11 +592,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Transaction**](Transaction.md)
+[**OrdersTransactions**](OrdersTransactions.md)
 
 ### Authorization
 
-[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
+[access-token](../README.md#access-token), [client-id](../README.md#client-id), [merchant-id](../README.md#merchant-id)
 
 ### HTTP request headers
 
@@ -621,12 +622,6 @@ Recurso responsável por efetuar o cancelamento de um pedido.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: merchant-id
-ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
-merchant-id.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//merchant-id.setApiKeyPrefix("Token");
-
 // Configure API key authorization: access-token
 ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
 access-token.setApiKey("YOUR API KEY");
@@ -638,6 +633,12 @@ ApiKeyAuth client-id = (ApiKeyAuth) defaultClient.getAuthentication("client-id")
 client-id.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //client-id.setApiKeyPrefix("Token");
+
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
 
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
@@ -669,7 +670,7 @@ null (empty response body)
 
 ### Authorization
 
-[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
+[access-token](../README.md#access-token), [client-id](../README.md#client-id), [merchant-id](../README.md#merchant-id)
 
 ### HTTP request headers
 
@@ -678,7 +679,7 @@ null (empty response body)
 
 <a name="orderUpdateItem"></a>
 # **orderUpdateItem**
-> Response orderUpdateItem(clientId, accessToken, merchantId, id, itemId, body)
+> InlineResponse201 orderUpdateItem(clientId, accessToken, merchantId, id, itemId, body)
 
 
 
@@ -695,12 +696,6 @@ Recurso responsável por efetuar a alteração de um item de um pedido.
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure API key authorization: merchant-id
-ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
-merchant-id.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//merchant-id.setApiKeyPrefix("Token");
-
 // Configure API key authorization: access-token
 ApiKeyAuth access-token = (ApiKeyAuth) defaultClient.getAuthentication("access-token");
 access-token.setApiKey("YOUR API KEY");
@@ -713,15 +708,21 @@ client-id.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //client-id.setApiKeyPrefix("Token");
 
+// Configure API key authorization: merchant-id
+ApiKeyAuth merchant-id = (ApiKeyAuth) defaultClient.getAuthentication("merchant-id");
+merchant-id.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//merchant-id.setApiKeyPrefix("Token");
+
 OrderManagementApi apiInstance = new OrderManagementApi();
 String clientId = "clientId_example"; // String | Token da aplicação (APP Token) gerado durante o processo de cadastro.
 String accessToken = "accessToken_example"; // String | Token de acesso (Access Token) gerado durante o processo de cadastro.
 String merchantId = "merchantId_example"; // String | Identificador do estabelecimento comercial gerado durante o processo de cadastro.
 String id = "id_example"; // String | Identificador do pedido.
 String itemId = "itemId_example"; // String | Identificador do item do pedido.
-OrderItem body = new OrderItem(); // OrderItem | 
+Body2 body = new Body2(); // Body2 | 
 try {
-    Response result = apiInstance.orderUpdateItem(clientId, accessToken, merchantId, id, itemId, body);
+    InlineResponse201 result = apiInstance.orderUpdateItem(clientId, accessToken, merchantId, id, itemId, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrderManagementApi#orderUpdateItem");
@@ -738,15 +739,15 @@ Name | Type | Description  | Notes
  **merchantId** | **String**| Identificador do estabelecimento comercial gerado durante o processo de cadastro. |
  **id** | **String**| Identificador do pedido. |
  **itemId** | **String**| Identificador do item do pedido. |
- **body** | [**OrderItem**](OrderItem.md)|  |
+ **body** | [**Body2**](Body2.md)|  |
 
 ### Return type
 
-[**Response**](Response.md)
+[**InlineResponse201**](InlineResponse201.md)
 
 ### Authorization
 
-[merchant-id](../README.md#merchant-id), [access-token](../README.md#access-token), [client-id](../README.md#client-id)
+[access-token](../README.md#access-token), [client-id](../README.md#client-id), [merchant-id](../README.md#merchant-id)
 
 ### HTTP request headers
 

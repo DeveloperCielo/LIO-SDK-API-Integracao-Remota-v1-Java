@@ -14,11 +14,14 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.model.ErrorResponse;
-import io.swagger.client.model.Order;
-import io.swagger.client.model.OrderItem;
-import io.swagger.client.model.Response;
-import io.swagger.client.model.Transaction;
+import io.swagger.client.model.Body;
+import io.swagger.client.model.Body1;
+import io.swagger.client.model.Body2;
+import io.swagger.client.model.InlineResponse200;
+import io.swagger.client.model.InlineResponse201;
+import io.swagger.client.model.InlineResponse401;
+import io.swagger.client.model.OrdersItems;
+import io.swagger.client.model.OrdersTransactions;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -50,8 +53,8 @@ public class OrderManagementApiTest {
         String accessToken = null;
         String merchantId = null;
         String id = null;
-        OrderItem body = null;
-        Response response = api.orderAddItem(clientId, accessToken, merchantId, id, body);
+        Body1 body = null;
+        InlineResponse201 response = api.orderAddItem(clientId, accessToken, merchantId, id, body);
 
         // TODO: test validations
     }
@@ -69,8 +72,8 @@ public class OrderManagementApiTest {
         String clientId = null;
         String accessToken = null;
         String merchantId = null;
-        Order body = null;
-        Response response = api.orderCreate(clientId, accessToken, merchantId, body);
+        Body body = null;
+        InlineResponse201 response = api.orderCreate(clientId, accessToken, merchantId, body);
 
         // TODO: test validations
     }
@@ -109,7 +112,7 @@ public class OrderManagementApiTest {
         String merchantId = null;
         String id = null;
         String itemId = null;
-        Response response = api.orderDeleteItem(clientId, accessToken, merchantId, id, itemId);
+        InlineResponse201 response = api.orderDeleteItem(clientId, accessToken, merchantId, id, itemId);
 
         // TODO: test validations
     }
@@ -128,7 +131,7 @@ public class OrderManagementApiTest {
         String accessToken = null;
         String merchantId = null;
         String id = null;
-        Order response = api.orderGet(clientId, accessToken, merchantId, id);
+        InlineResponse200 response = api.orderGet(clientId, accessToken, merchantId, id);
 
         // TODO: test validations
     }
@@ -147,7 +150,7 @@ public class OrderManagementApiTest {
         String accessToken = null;
         String merchantId = null;
         String parameters = null;
-        api.orderGetByParameters(clientId, accessToken, merchantId, parameters);
+        List<InlineResponse200> response = api.orderGetByParameters(clientId, accessToken, merchantId, parameters);
 
         // TODO: test validations
     }
@@ -166,7 +169,7 @@ public class OrderManagementApiTest {
         String accessToken = null;
         String merchantId = null;
         String id = null;
-        OrderItem response = api.orderGetItem(clientId, accessToken, merchantId, id);
+        OrdersItems response = api.orderGetItem(clientId, accessToken, merchantId, id);
 
         // TODO: test validations
     }
@@ -185,7 +188,7 @@ public class OrderManagementApiTest {
         String accessToken = null;
         String merchantId = null;
         String id = null;
-        Transaction response = api.orderGetTransactions(clientId, accessToken, merchantId, id);
+        OrdersTransactions response = api.orderGetTransactions(clientId, accessToken, merchantId, id);
 
         // TODO: test validations
     }
@@ -225,8 +228,8 @@ public class OrderManagementApiTest {
         String merchantId = null;
         String id = null;
         String itemId = null;
-        OrderItem body = null;
-        Response response = api.orderUpdateItem(clientId, accessToken, merchantId, id, itemId, body);
+        Body2 body = null;
+        InlineResponse201 response = api.orderUpdateItem(clientId, accessToken, merchantId, id, itemId, body);
 
         // TODO: test validations
     }

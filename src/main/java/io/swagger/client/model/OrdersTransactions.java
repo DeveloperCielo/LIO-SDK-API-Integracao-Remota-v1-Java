@@ -27,10 +27,10 @@ import java.io.IOException;
 import org.joda.time.DateTime;
 
 /**
- * Transaction
+ * OrdersTransactions
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-28T14:20:55.281Z")
-public class Transaction {
+public class OrdersTransactions {
   @SerializedName("id")
   private String id = null;
 
@@ -163,7 +163,7 @@ public class Transaction {
   @SerializedName("updated_at")
   private DateTime updatedAt = null;
 
-  public Transaction id(String id) {
+  public OrdersTransactions id(String id) {
     this.id = id;
     return this;
   }
@@ -181,7 +181,7 @@ public class Transaction {
     this.id = id;
   }
 
-  public Transaction transactionType(TransactionTypeEnum transactionType) {
+  public OrdersTransactions transactionType(TransactionTypeEnum transactionType) {
     this.transactionType = transactionType;
     return this;
   }
@@ -199,7 +199,7 @@ public class Transaction {
     this.transactionType = transactionType;
   }
 
-  public Transaction status(StatusEnum status) {
+  public OrdersTransactions status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -217,7 +217,7 @@ public class Transaction {
     this.status = status;
   }
 
-  public Transaction description(String description) {
+  public OrdersTransactions description(String description) {
     this.description = description;
     return this;
   }
@@ -235,7 +235,7 @@ public class Transaction {
     this.description = description;
   }
 
-  public Transaction terminalNumber(Integer terminalNumber) {
+  public OrdersTransactions terminalNumber(Integer terminalNumber) {
     this.terminalNumber = terminalNumber;
     return this;
   }
@@ -253,7 +253,7 @@ public class Transaction {
     this.terminalNumber = terminalNumber;
   }
 
-  public Transaction card(OrdersCard card) {
+  public OrdersTransactions card(OrdersCard card) {
     this.card = card;
     return this;
   }
@@ -271,7 +271,7 @@ public class Transaction {
     this.card = card;
   }
 
-  public Transaction number(Integer number) {
+  public OrdersTransactions number(Integer number) {
     this.number = number;
     return this;
   }
@@ -289,7 +289,7 @@ public class Transaction {
     this.number = number;
   }
 
-  public Transaction authorizationCode(String authorizationCode) {
+  public OrdersTransactions authorizationCode(String authorizationCode) {
     this.authorizationCode = authorizationCode;
     return this;
   }
@@ -307,7 +307,7 @@ public class Transaction {
     this.authorizationCode = authorizationCode;
   }
 
-  public Transaction paymentProduct(OrdersPaymentProduct paymentProduct) {
+  public OrdersTransactions paymentProduct(OrdersPaymentProduct paymentProduct) {
     this.paymentProduct = paymentProduct;
     return this;
   }
@@ -325,7 +325,7 @@ public class Transaction {
     this.paymentProduct = paymentProduct;
   }
 
-  public Transaction amount(String amount) {
+  public OrdersTransactions amount(String amount) {
     this.amount = amount;
     return this;
   }
@@ -343,7 +343,7 @@ public class Transaction {
     this.amount = amount;
   }
 
-  public Transaction createdAt(DateTime createdAt) {
+  public OrdersTransactions createdAt(DateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -361,7 +361,7 @@ public class Transaction {
     this.createdAt = createdAt;
   }
 
-  public Transaction updatedAt(DateTime updatedAt) {
+  public OrdersTransactions updatedAt(DateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -388,19 +388,19 @@ public class Transaction {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Transaction transaction = (Transaction) o;
-    return Objects.equals(this.id, transaction.id) &&
-        Objects.equals(this.transactionType, transaction.transactionType) &&
-        Objects.equals(this.status, transaction.status) &&
-        Objects.equals(this.description, transaction.description) &&
-        Objects.equals(this.terminalNumber, transaction.terminalNumber) &&
-        Objects.equals(this.card, transaction.card) &&
-        Objects.equals(this.number, transaction.number) &&
-        Objects.equals(this.authorizationCode, transaction.authorizationCode) &&
-        Objects.equals(this.paymentProduct, transaction.paymentProduct) &&
-        Objects.equals(this.amount, transaction.amount) &&
-        Objects.equals(this.createdAt, transaction.createdAt) &&
-        Objects.equals(this.updatedAt, transaction.updatedAt);
+    OrdersTransactions ordersTransactions = (OrdersTransactions) o;
+    return Objects.equals(this.id, ordersTransactions.id) &&
+        Objects.equals(this.transactionType, ordersTransactions.transactionType) &&
+        Objects.equals(this.status, ordersTransactions.status) &&
+        Objects.equals(this.description, ordersTransactions.description) &&
+        Objects.equals(this.terminalNumber, ordersTransactions.terminalNumber) &&
+        Objects.equals(this.card, ordersTransactions.card) &&
+        Objects.equals(this.number, ordersTransactions.number) &&
+        Objects.equals(this.authorizationCode, ordersTransactions.authorizationCode) &&
+        Objects.equals(this.paymentProduct, ordersTransactions.paymentProduct) &&
+        Objects.equals(this.amount, ordersTransactions.amount) &&
+        Objects.equals(this.createdAt, ordersTransactions.createdAt) &&
+        Objects.equals(this.updatedAt, ordersTransactions.updatedAt);
   }
 
   @Override
@@ -412,7 +412,7 @@ public class Transaction {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Transaction {\n");
+    sb.append("class OrdersTransactions {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    transactionType: ").append(toIndentedString(transactionType)).append("\n");

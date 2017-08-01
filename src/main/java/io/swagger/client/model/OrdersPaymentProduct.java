@@ -29,7 +29,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "Informações sobre o produto de pagamento utilizado.")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-28T14:20:55.281Z")
-public class PaymentProduct {
+public class OrdersPaymentProduct {
   @SerializedName("number")
   private Integer number = null;
 
@@ -39,7 +39,7 @@ public class PaymentProduct {
   @SerializedName("sub")
   private OrdersPaymentProductSub sub = null;
 
-  public PaymentProduct number(Integer number) {
+  public OrdersPaymentProduct number(Integer number) {
     this.number = number;
     return this;
   }
@@ -57,7 +57,7 @@ public class PaymentProduct {
     this.number = number;
   }
 
-  public PaymentProduct name(String name) {
+  public OrdersPaymentProduct name(String name) {
     this.name = name;
     return this;
   }
@@ -75,7 +75,7 @@ public class PaymentProduct {
     this.name = name;
   }
 
-  public PaymentProduct sub(OrdersPaymentProductSub sub) {
+  public OrdersPaymentProduct sub(OrdersPaymentProductSub sub) {
     this.sub = sub;
     return this;
   }
@@ -102,10 +102,10 @@ public class PaymentProduct {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentProduct paymentProduct = (PaymentProduct) o;
-    return Objects.equals(this.number, paymentProduct.number) &&
-        Objects.equals(this.name, paymentProduct.name) &&
-        Objects.equals(this.sub, paymentProduct.sub);
+    OrdersPaymentProduct ordersPaymentProduct = (OrdersPaymentProduct) o;
+    return Objects.equals(this.number, ordersPaymentProduct.number) &&
+        Objects.equals(this.name, ordersPaymentProduct.name) &&
+        Objects.equals(this.sub, ordersPaymentProduct.sub);
   }
 
   @Override
@@ -117,7 +117,7 @@ public class PaymentProduct {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentProduct {\n");
+    sb.append("class OrdersPaymentProduct {\n");
     
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

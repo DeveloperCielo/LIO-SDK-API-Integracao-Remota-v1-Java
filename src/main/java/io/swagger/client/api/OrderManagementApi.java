@@ -27,11 +27,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.ErrorResponse;
-import io.swagger.client.model.Order;
-import io.swagger.client.model.OrderItem;
-import io.swagger.client.model.Response;
-import io.swagger.client.model.Transaction;
+import io.swagger.client.model.Body;
+import io.swagger.client.model.Body1;
+import io.swagger.client.model.Body2;
+import io.swagger.client.model.InlineResponse200;
+import io.swagger.client.model.InlineResponse201;
+import io.swagger.client.model.InlineResponse401;
+import io.swagger.client.model.OrdersItems;
+import io.swagger.client.model.OrdersTransactions;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -58,13 +61,24 @@ public class OrderManagementApi {
         this.apiClient = apiClient;
     }
 
-    /* Build call for orderAddItem */
-    private com.squareup.okhttp.Call orderAddItemCall(String clientId, String accessToken, String merchantId, String id, OrderItem body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for orderAddItem
+     * @param clientId Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
+     * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
+     * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
+     * @param id Identificador do pedido. (required)
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orderAddItemCall(String clientId, String accessToken, String merchantId, String id, Body1 body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/orders/{id}/items".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/orders/{id}/items"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -102,12 +116,12 @@ public class OrderManagementApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "merchant-id", "access-token", "client-id" };
+        String[] localVarAuthNames = new String[] { "access-token", "client-id", "merchant-id" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orderAddItemValidateBeforeCall(String clientId, String accessToken, String merchantId, String id, OrderItem body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orderAddItemValidateBeforeCall(String clientId, String accessToken, String merchantId, String id, Body1 body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'clientId' is set
         if (clientId == null) {
@@ -152,11 +166,11 @@ public class OrderManagementApi {
      * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param id Identificador do pedido. (required)
      * @param body  (required)
-     * @return Response
+     * @return InlineResponse201
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Response orderAddItem(String clientId, String accessToken, String merchantId, String id, OrderItem body) throws ApiException {
-        ApiResponse<Response> resp = orderAddItemWithHttpInfo(clientId, accessToken, merchantId, id, body);
+    public InlineResponse201 orderAddItem(String clientId, String accessToken, String merchantId, String id, Body1 body) throws ApiException {
+        ApiResponse<InlineResponse201> resp = orderAddItemWithHttpInfo(clientId, accessToken, merchantId, id, body);
         return resp.getData();
     }
 
@@ -168,12 +182,12 @@ public class OrderManagementApi {
      * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param id Identificador do pedido. (required)
      * @param body  (required)
-     * @return ApiResponse&lt;Response&gt;
+     * @return ApiResponse&lt;InlineResponse201&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Response> orderAddItemWithHttpInfo(String clientId, String accessToken, String merchantId, String id, OrderItem body) throws ApiException {
+    public ApiResponse<InlineResponse201> orderAddItemWithHttpInfo(String clientId, String accessToken, String merchantId, String id, Body1 body) throws ApiException {
         com.squareup.okhttp.Call call = orderAddItemValidateBeforeCall(clientId, accessToken, merchantId, id, body, null, null);
-        Type localVarReturnType = new TypeToken<Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -189,7 +203,7 @@ public class OrderManagementApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orderAddItemAsync(String clientId, String accessToken, String merchantId, String id, OrderItem body, final ApiCallback<Response> callback) throws ApiException {
+    public com.squareup.okhttp.Call orderAddItemAsync(String clientId, String accessToken, String merchantId, String id, Body1 body, final ApiCallback<InlineResponse201> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -211,16 +225,26 @@ public class OrderManagementApi {
         }
 
         com.squareup.okhttp.Call call = orderAddItemValidateBeforeCall(clientId, accessToken, merchantId, id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for orderCreate */
-    private com.squareup.okhttp.Call orderCreateCall(String clientId, String accessToken, String merchantId, Order body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for orderCreate
+     * @param clientId Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
+     * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
+     * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orderCreateCall(String clientId, String accessToken, String merchantId, Body body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/orders".replaceAll("\\{format\\}","json");
+        String localVarPath = "/orders";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -258,12 +282,12 @@ public class OrderManagementApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "merchant-id", "access-token", "client-id" };
+        String[] localVarAuthNames = new String[] { "access-token", "client-id", "merchant-id" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orderCreateValidateBeforeCall(String clientId, String accessToken, String merchantId, Order body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orderCreateValidateBeforeCall(String clientId, String accessToken, String merchantId, Body body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'clientId' is set
         if (clientId == null) {
@@ -302,11 +326,11 @@ public class OrderManagementApi {
      * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param body  (required)
-     * @return Response
+     * @return InlineResponse201
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Response orderCreate(String clientId, String accessToken, String merchantId, Order body) throws ApiException {
-        ApiResponse<Response> resp = orderCreateWithHttpInfo(clientId, accessToken, merchantId, body);
+    public InlineResponse201 orderCreate(String clientId, String accessToken, String merchantId, Body body) throws ApiException {
+        ApiResponse<InlineResponse201> resp = orderCreateWithHttpInfo(clientId, accessToken, merchantId, body);
         return resp.getData();
     }
 
@@ -317,12 +341,12 @@ public class OrderManagementApi {
      * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param body  (required)
-     * @return ApiResponse&lt;Response&gt;
+     * @return ApiResponse&lt;InlineResponse201&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Response> orderCreateWithHttpInfo(String clientId, String accessToken, String merchantId, Order body) throws ApiException {
+    public ApiResponse<InlineResponse201> orderCreateWithHttpInfo(String clientId, String accessToken, String merchantId, Body body) throws ApiException {
         com.squareup.okhttp.Call call = orderCreateValidateBeforeCall(clientId, accessToken, merchantId, body, null, null);
-        Type localVarReturnType = new TypeToken<Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -337,7 +361,7 @@ public class OrderManagementApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orderCreateAsync(String clientId, String accessToken, String merchantId, Order body, final ApiCallback<Response> callback) throws ApiException {
+    public com.squareup.okhttp.Call orderCreateAsync(String clientId, String accessToken, String merchantId, Body body, final ApiCallback<InlineResponse201> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -359,17 +383,27 @@ public class OrderManagementApi {
         }
 
         com.squareup.okhttp.Call call = orderCreateValidateBeforeCall(clientId, accessToken, merchantId, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for orderDelete */
-    private com.squareup.okhttp.Call orderDeleteCall(String clientId, String accessToken, String merchantId, String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for orderDelete
+     * @param clientId Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
+     * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
+     * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
+     * @param id Identificador do pedido. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orderDeleteCall(String clientId, String accessToken, String merchantId, String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/orders/{id}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/orders/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -407,7 +441,7 @@ public class OrderManagementApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "merchant-id", "access-token", "client-id" };
+        String[] localVarAuthNames = new String[] { "access-token", "client-id", "merchant-id" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -508,14 +542,25 @@ public class OrderManagementApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for orderDeleteItem */
-    private com.squareup.okhttp.Call orderDeleteItemCall(String clientId, String accessToken, String merchantId, String id, String itemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for orderDeleteItem
+     * @param clientId Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
+     * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
+     * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
+     * @param id Identificador do pedido. (required)
+     * @param itemId Identificador do item do pedido. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orderDeleteItemCall(String clientId, String accessToken, String merchantId, String id, String itemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/orders/{id}/items/{itemId}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-        .replaceAll("\\{" + "itemId" + "\\}", apiClient.escapeString(itemId.toString()));
+        String localVarPath = "/orders/{id}/items/{itemId}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{" + "itemId" + "\\}", apiClient.escapeString(itemId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -553,7 +598,7 @@ public class OrderManagementApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "merchant-id", "access-token", "client-id" };
+        String[] localVarAuthNames = new String[] { "access-token", "client-id", "merchant-id" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -603,11 +648,11 @@ public class OrderManagementApi {
      * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param id Identificador do pedido. (required)
      * @param itemId Identificador do item do pedido. (required)
-     * @return Response
+     * @return InlineResponse201
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Response orderDeleteItem(String clientId, String accessToken, String merchantId, String id, String itemId) throws ApiException {
-        ApiResponse<Response> resp = orderDeleteItemWithHttpInfo(clientId, accessToken, merchantId, id, itemId);
+    public InlineResponse201 orderDeleteItem(String clientId, String accessToken, String merchantId, String id, String itemId) throws ApiException {
+        ApiResponse<InlineResponse201> resp = orderDeleteItemWithHttpInfo(clientId, accessToken, merchantId, id, itemId);
         return resp.getData();
     }
 
@@ -619,12 +664,12 @@ public class OrderManagementApi {
      * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param id Identificador do pedido. (required)
      * @param itemId Identificador do item do pedido. (required)
-     * @return ApiResponse&lt;Response&gt;
+     * @return ApiResponse&lt;InlineResponse201&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Response> orderDeleteItemWithHttpInfo(String clientId, String accessToken, String merchantId, String id, String itemId) throws ApiException {
+    public ApiResponse<InlineResponse201> orderDeleteItemWithHttpInfo(String clientId, String accessToken, String merchantId, String id, String itemId) throws ApiException {
         com.squareup.okhttp.Call call = orderDeleteItemValidateBeforeCall(clientId, accessToken, merchantId, id, itemId, null, null);
-        Type localVarReturnType = new TypeToken<Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -640,7 +685,7 @@ public class OrderManagementApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orderDeleteItemAsync(String clientId, String accessToken, String merchantId, String id, String itemId, final ApiCallback<Response> callback) throws ApiException {
+    public com.squareup.okhttp.Call orderDeleteItemAsync(String clientId, String accessToken, String merchantId, String id, String itemId, final ApiCallback<InlineResponse201> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -662,17 +707,27 @@ public class OrderManagementApi {
         }
 
         com.squareup.okhttp.Call call = orderDeleteItemValidateBeforeCall(clientId, accessToken, merchantId, id, itemId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for orderGet */
-    private com.squareup.okhttp.Call orderGetCall(String clientId, String accessToken, String merchantId, String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for orderGet
+     * @param clientId Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
+     * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
+     * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
+     * @param id Identificador do pedido. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orderGetCall(String clientId, String accessToken, String merchantId, String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/orders/{id}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/orders/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -710,7 +765,7 @@ public class OrderManagementApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "merchant-id", "access-token", "client-id" };
+        String[] localVarAuthNames = new String[] { "access-token", "client-id", "merchant-id" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -754,11 +809,11 @@ public class OrderManagementApi {
      * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param id Identificador do pedido. (required)
-     * @return Order
+     * @return InlineResponse200
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Order orderGet(String clientId, String accessToken, String merchantId, String id) throws ApiException {
-        ApiResponse<Order> resp = orderGetWithHttpInfo(clientId, accessToken, merchantId, id);
+    public InlineResponse200 orderGet(String clientId, String accessToken, String merchantId, String id) throws ApiException {
+        ApiResponse<InlineResponse200> resp = orderGetWithHttpInfo(clientId, accessToken, merchantId, id);
         return resp.getData();
     }
 
@@ -769,12 +824,12 @@ public class OrderManagementApi {
      * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param id Identificador do pedido. (required)
-     * @return ApiResponse&lt;Order&gt;
+     * @return ApiResponse&lt;InlineResponse200&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Order> orderGetWithHttpInfo(String clientId, String accessToken, String merchantId, String id) throws ApiException {
+    public ApiResponse<InlineResponse200> orderGetWithHttpInfo(String clientId, String accessToken, String merchantId, String id) throws ApiException {
         com.squareup.okhttp.Call call = orderGetValidateBeforeCall(clientId, accessToken, merchantId, id, null, null);
-        Type localVarReturnType = new TypeToken<Order>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -789,7 +844,7 @@ public class OrderManagementApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orderGetAsync(String clientId, String accessToken, String merchantId, String id, final ApiCallback<Order> callback) throws ApiException {
+    public com.squareup.okhttp.Call orderGetAsync(String clientId, String accessToken, String merchantId, String id, final ApiCallback<InlineResponse200> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -811,16 +866,26 @@ public class OrderManagementApi {
         }
 
         com.squareup.okhttp.Call call = orderGetValidateBeforeCall(clientId, accessToken, merchantId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Order>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for orderGetByParameters */
-    private com.squareup.okhttp.Call orderGetByParametersCall(String clientId, String accessToken, String merchantId, String parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for orderGetByParameters
+     * @param clientId Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
+     * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
+     * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
+     * @param parameters Parâmetros para filtrar a consulta. Os possíveis parâmetros são: number (Número do pedidos), reference (Referência do pedido) e status (Status do pedidos: DRAFT, ENTERED, CANCELED, PAID, APPROVED, REJECTED, RE-ENTERED e CLOSED). (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orderGetByParametersCall(String clientId, String accessToken, String merchantId, String parameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/orders".replaceAll("\\{format\\}","json");
+        String localVarPath = "/orders";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (parameters != null)
@@ -860,7 +925,7 @@ public class OrderManagementApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "merchant-id", "access-token", "client-id" };
+        String[] localVarAuthNames = new String[] { "access-token", "client-id", "merchant-id" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -904,10 +969,12 @@ public class OrderManagementApi {
      * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param parameters Parâmetros para filtrar a consulta. Os possíveis parâmetros são: number (Número do pedidos), reference (Referência do pedido) e status (Status do pedidos: DRAFT, ENTERED, CANCELED, PAID, APPROVED, REJECTED, RE-ENTERED e CLOSED). (required)
+     * @return List&lt;InlineResponse200&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void orderGetByParameters(String clientId, String accessToken, String merchantId, String parameters) throws ApiException {
-        orderGetByParametersWithHttpInfo(clientId, accessToken, merchantId, parameters);
+    public List<InlineResponse200> orderGetByParameters(String clientId, String accessToken, String merchantId, String parameters) throws ApiException {
+        ApiResponse<List<InlineResponse200>> resp = orderGetByParametersWithHttpInfo(clientId, accessToken, merchantId, parameters);
+        return resp.getData();
     }
 
     /**
@@ -917,12 +984,13 @@ public class OrderManagementApi {
      * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param parameters Parâmetros para filtrar a consulta. Os possíveis parâmetros são: number (Número do pedidos), reference (Referência do pedido) e status (Status do pedidos: DRAFT, ENTERED, CANCELED, PAID, APPROVED, REJECTED, RE-ENTERED e CLOSED). (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;List&lt;InlineResponse200&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> orderGetByParametersWithHttpInfo(String clientId, String accessToken, String merchantId, String parameters) throws ApiException {
+    public ApiResponse<List<InlineResponse200>> orderGetByParametersWithHttpInfo(String clientId, String accessToken, String merchantId, String parameters) throws ApiException {
         com.squareup.okhttp.Call call = orderGetByParametersValidateBeforeCall(clientId, accessToken, merchantId, parameters, null, null);
-        return apiClient.execute(call);
+        Type localVarReturnType = new TypeToken<List<InlineResponse200>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
     }
 
     /**
@@ -936,7 +1004,7 @@ public class OrderManagementApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orderGetByParametersAsync(String clientId, String accessToken, String merchantId, String parameters, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call orderGetByParametersAsync(String clientId, String accessToken, String merchantId, String parameters, final ApiCallback<List<InlineResponse200>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -958,16 +1026,27 @@ public class OrderManagementApi {
         }
 
         com.squareup.okhttp.Call call = orderGetByParametersValidateBeforeCall(clientId, accessToken, merchantId, parameters, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        Type localVarReturnType = new TypeToken<List<InlineResponse200>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for orderGetItem */
-    private com.squareup.okhttp.Call orderGetItemCall(String clientId, String accessToken, String merchantId, String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for orderGetItem
+     * @param clientId Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
+     * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
+     * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
+     * @param id Identificador do pedido. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orderGetItemCall(String clientId, String accessToken, String merchantId, String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/orders/{id}/items".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/orders/{id}/items"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1005,7 +1084,7 @@ public class OrderManagementApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "merchant-id", "access-token", "client-id" };
+        String[] localVarAuthNames = new String[] { "access-token", "client-id", "merchant-id" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1049,11 +1128,11 @@ public class OrderManagementApi {
      * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param id Identificador do pedido. (required)
-     * @return OrderItem
+     * @return OrdersItems
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public OrderItem orderGetItem(String clientId, String accessToken, String merchantId, String id) throws ApiException {
-        ApiResponse<OrderItem> resp = orderGetItemWithHttpInfo(clientId, accessToken, merchantId, id);
+    public OrdersItems orderGetItem(String clientId, String accessToken, String merchantId, String id) throws ApiException {
+        ApiResponse<OrdersItems> resp = orderGetItemWithHttpInfo(clientId, accessToken, merchantId, id);
         return resp.getData();
     }
 
@@ -1064,12 +1143,12 @@ public class OrderManagementApi {
      * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param id Identificador do pedido. (required)
-     * @return ApiResponse&lt;OrderItem&gt;
+     * @return ApiResponse&lt;OrdersItems&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<OrderItem> orderGetItemWithHttpInfo(String clientId, String accessToken, String merchantId, String id) throws ApiException {
+    public ApiResponse<OrdersItems> orderGetItemWithHttpInfo(String clientId, String accessToken, String merchantId, String id) throws ApiException {
         com.squareup.okhttp.Call call = orderGetItemValidateBeforeCall(clientId, accessToken, merchantId, id, null, null);
-        Type localVarReturnType = new TypeToken<OrderItem>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrdersItems>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1084,7 +1163,7 @@ public class OrderManagementApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orderGetItemAsync(String clientId, String accessToken, String merchantId, String id, final ApiCallback<OrderItem> callback) throws ApiException {
+    public com.squareup.okhttp.Call orderGetItemAsync(String clientId, String accessToken, String merchantId, String id, final ApiCallback<OrdersItems> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1106,17 +1185,27 @@ public class OrderManagementApi {
         }
 
         com.squareup.okhttp.Call call = orderGetItemValidateBeforeCall(clientId, accessToken, merchantId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<OrderItem>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrdersItems>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for orderGetTransactions */
-    private com.squareup.okhttp.Call orderGetTransactionsCall(String clientId, String accessToken, String merchantId, String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for orderGetTransactions
+     * @param clientId Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
+     * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
+     * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
+     * @param id Identificador do pedido. (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orderGetTransactionsCall(String clientId, String accessToken, String merchantId, String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/orders/{id}/transactions".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/orders/{id}/transactions"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1154,7 +1243,7 @@ public class OrderManagementApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "merchant-id", "access-token", "client-id" };
+        String[] localVarAuthNames = new String[] { "access-token", "client-id", "merchant-id" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1198,11 +1287,11 @@ public class OrderManagementApi {
      * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param id Identificador do pedido. (required)
-     * @return Transaction
+     * @return OrdersTransactions
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Transaction orderGetTransactions(String clientId, String accessToken, String merchantId, String id) throws ApiException {
-        ApiResponse<Transaction> resp = orderGetTransactionsWithHttpInfo(clientId, accessToken, merchantId, id);
+    public OrdersTransactions orderGetTransactions(String clientId, String accessToken, String merchantId, String id) throws ApiException {
+        ApiResponse<OrdersTransactions> resp = orderGetTransactionsWithHttpInfo(clientId, accessToken, merchantId, id);
         return resp.getData();
     }
 
@@ -1213,12 +1302,12 @@ public class OrderManagementApi {
      * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
      * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
      * @param id Identificador do pedido. (required)
-     * @return ApiResponse&lt;Transaction&gt;
+     * @return ApiResponse&lt;OrdersTransactions&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Transaction> orderGetTransactionsWithHttpInfo(String clientId, String accessToken, String merchantId, String id) throws ApiException {
+    public ApiResponse<OrdersTransactions> orderGetTransactionsWithHttpInfo(String clientId, String accessToken, String merchantId, String id) throws ApiException {
         com.squareup.okhttp.Call call = orderGetTransactionsValidateBeforeCall(clientId, accessToken, merchantId, id, null, null);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrdersTransactions>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1233,7 +1322,7 @@ public class OrderManagementApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orderGetTransactionsAsync(String clientId, String accessToken, String merchantId, String id, final ApiCallback<Transaction> callback) throws ApiException {
+    public com.squareup.okhttp.Call orderGetTransactionsAsync(String clientId, String accessToken, String merchantId, String id, final ApiCallback<OrdersTransactions> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1255,17 +1344,28 @@ public class OrderManagementApi {
         }
 
         com.squareup.okhttp.Call call = orderGetTransactionsValidateBeforeCall(clientId, accessToken, merchantId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrdersTransactions>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    /* Build call for orderUpdate */
-    private com.squareup.okhttp.Call orderUpdateCall(String clientId, String accessToken, String merchantId, String id, String operation, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for orderUpdate
+     * @param clientId Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
+     * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
+     * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
+     * @param id Identificador do pedido. (required)
+     * @param operation Operação que deve ser executada. As possíveis operações são: cancel (cancelamento de um pedido), close (fechamento de um pedido), place (liberação de um pedido para pagamento). (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orderUpdateCall(String clientId, String accessToken, String merchantId, String id, String operation, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/orders/{id}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+        String localVarPath = "/orders/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         if (operation != null)
@@ -1305,7 +1405,7 @@ public class OrderManagementApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "merchant-id", "access-token", "client-id" };
+        String[] localVarAuthNames = new String[] { "access-token", "client-id", "merchant-id" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
@@ -1414,14 +1514,26 @@ public class OrderManagementApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
-    /* Build call for orderUpdateItem */
-    private com.squareup.okhttp.Call orderUpdateItemCall(String clientId, String accessToken, String merchantId, String id, String itemId, OrderItem body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    /**
+     * Build call for orderUpdateItem
+     * @param clientId Token da aplicação (APP Token) gerado durante o processo de cadastro. (required)
+     * @param accessToken Token de acesso (Access Token) gerado durante o processo de cadastro. (required)
+     * @param merchantId Identificador do estabelecimento comercial gerado durante o processo de cadastro. (required)
+     * @param id Identificador do pedido. (required)
+     * @param itemId Identificador do item do pedido. (required)
+     * @param body  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call orderUpdateItemCall(String clientId, String accessToken, String merchantId, String id, String itemId, Body2 body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
         
         // create path and map variables
-        String localVarPath = "/orders/{id}/items/{itemId}".replaceAll("\\{format\\}","json")
-        .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-        .replaceAll("\\{" + "itemId" + "\\}", apiClient.escapeString(itemId.toString()));
+        String localVarPath = "/orders/{id}/items/{itemId}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{" + "itemId" + "\\}", apiClient.escapeString(itemId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
@@ -1459,12 +1571,12 @@ public class OrderManagementApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "merchant-id", "access-token", "client-id" };
+        String[] localVarAuthNames = new String[] { "access-token", "client-id", "merchant-id" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call orderUpdateItemValidateBeforeCall(String clientId, String accessToken, String merchantId, String id, String itemId, OrderItem body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call orderUpdateItemValidateBeforeCall(String clientId, String accessToken, String merchantId, String id, String itemId, Body2 body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'clientId' is set
         if (clientId == null) {
@@ -1515,11 +1627,11 @@ public class OrderManagementApi {
      * @param id Identificador do pedido. (required)
      * @param itemId Identificador do item do pedido. (required)
      * @param body  (required)
-     * @return Response
+     * @return InlineResponse201
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Response orderUpdateItem(String clientId, String accessToken, String merchantId, String id, String itemId, OrderItem body) throws ApiException {
-        ApiResponse<Response> resp = orderUpdateItemWithHttpInfo(clientId, accessToken, merchantId, id, itemId, body);
+    public InlineResponse201 orderUpdateItem(String clientId, String accessToken, String merchantId, String id, String itemId, Body2 body) throws ApiException {
+        ApiResponse<InlineResponse201> resp = orderUpdateItemWithHttpInfo(clientId, accessToken, merchantId, id, itemId, body);
         return resp.getData();
     }
 
@@ -1532,12 +1644,12 @@ public class OrderManagementApi {
      * @param id Identificador do pedido. (required)
      * @param itemId Identificador do item do pedido. (required)
      * @param body  (required)
-     * @return ApiResponse&lt;Response&gt;
+     * @return ApiResponse&lt;InlineResponse201&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Response> orderUpdateItemWithHttpInfo(String clientId, String accessToken, String merchantId, String id, String itemId, OrderItem body) throws ApiException {
+    public ApiResponse<InlineResponse201> orderUpdateItemWithHttpInfo(String clientId, String accessToken, String merchantId, String id, String itemId, Body2 body) throws ApiException {
         com.squareup.okhttp.Call call = orderUpdateItemValidateBeforeCall(clientId, accessToken, merchantId, id, itemId, body, null, null);
-        Type localVarReturnType = new TypeToken<Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1554,7 +1666,7 @@ public class OrderManagementApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call orderUpdateItemAsync(String clientId, String accessToken, String merchantId, String id, String itemId, OrderItem body, final ApiCallback<Response> callback) throws ApiException {
+    public com.squareup.okhttp.Call orderUpdateItemAsync(String clientId, String accessToken, String merchantId, String id, String itemId, Body2 body, final ApiCallback<InlineResponse201> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1576,7 +1688,7 @@ public class OrderManagementApi {
         }
 
         com.squareup.okhttp.Call call = orderUpdateItemValidateBeforeCall(clientId, accessToken, merchantId, id, itemId, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

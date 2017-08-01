@@ -28,7 +28,7 @@ import java.io.IOException;
  */
 @ApiModel(description = "Informações sobre o cartão utilizado na transação.")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-28T14:20:55.281Z")
-public class Card {
+public class OrdersCard {
   /**
    * Bandeira do cartão.
    */
@@ -93,7 +93,7 @@ public class Card {
   @SerializedName("last")
   private Integer last = null;
 
-  public Card brand(BrandEnum brand) {
+  public OrdersCard brand(BrandEnum brand) {
     this.brand = brand;
     return this;
   }
@@ -111,7 +111,7 @@ public class Card {
     this.brand = brand;
   }
 
-  public Card bin(Integer bin) {
+  public OrdersCard bin(Integer bin) {
     this.bin = bin;
     return this;
   }
@@ -129,7 +129,7 @@ public class Card {
     this.bin = bin;
   }
 
-  public Card last(Integer last) {
+  public OrdersCard last(Integer last) {
     this.last = last;
     return this;
   }
@@ -156,10 +156,10 @@ public class Card {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Card card = (Card) o;
-    return Objects.equals(this.brand, card.brand) &&
-        Objects.equals(this.bin, card.bin) &&
-        Objects.equals(this.last, card.last);
+    OrdersCard ordersCard = (OrdersCard) o;
+    return Objects.equals(this.brand, ordersCard.brand) &&
+        Objects.equals(this.bin, ordersCard.bin) &&
+        Objects.equals(this.last, ordersCard.last);
   }
 
   @Override
@@ -171,7 +171,7 @@ public class Card {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Card {\n");
+    sb.append("class OrdersCard {\n");
     
     sb.append("    brand: ").append(toIndentedString(brand)).append("\n");
     sb.append("    bin: ").append(toIndentedString(bin)).append("\n");

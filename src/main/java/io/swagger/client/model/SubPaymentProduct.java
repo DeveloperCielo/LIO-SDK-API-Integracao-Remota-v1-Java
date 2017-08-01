@@ -14,15 +14,20 @@
 package io.swagger.client.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Produto secundário.
  */
 @ApiModel(description = "Produto secundário.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-09T14:44:13.421Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-28T14:20:55.281Z")
 public class SubPaymentProduct {
   @SerializedName("number")
   private Integer number = null;
@@ -39,7 +44,7 @@ public class SubPaymentProduct {
    * Identificação numérica do produto primário da Cielo.
    * @return number
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Identificação numérica do produto primário da Cielo.")
+  @ApiModelProperty(required = true, value = "Identificação numérica do produto primário da Cielo.")
   public Integer getNumber() {
     return number;
   }
@@ -57,7 +62,7 @@ public class SubPaymentProduct {
    * Nome do produto primário utilizado.
    * @return name
   **/
-  @ApiModelProperty(example = "null", required = true, value = "Nome do produto primário utilizado.")
+  @ApiModelProperty(required = true, value = "Nome do produto primário utilizado.")
   public String getName() {
     return name;
   }

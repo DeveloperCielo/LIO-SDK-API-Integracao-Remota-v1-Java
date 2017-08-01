@@ -25,10 +25,10 @@ import java.io.IOException;
 import org.joda.time.DateTime;
 
 /**
- * OrderItem
+ * OrdersItems
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-28T14:20:55.281Z")
-public class OrderItem {
+public class OrdersItems {
   @SerializedName("sku")
   private String sku = null;
 
@@ -118,7 +118,7 @@ public class OrderItem {
   @SerializedName("updated_at")
   private DateTime updatedAt = null;
 
-  public OrderItem sku(String sku) {
+  public OrdersItems sku(String sku) {
     this.sku = sku;
     return this;
   }
@@ -136,7 +136,7 @@ public class OrderItem {
     this.sku = sku;
   }
 
-  public OrderItem skuType(String skuType) {
+  public OrdersItems skuType(String skuType) {
     this.skuType = skuType;
     return this;
   }
@@ -154,7 +154,7 @@ public class OrderItem {
     this.skuType = skuType;
   }
 
-  public OrderItem name(String name) {
+  public OrdersItems name(String name) {
     this.name = name;
     return this;
   }
@@ -172,7 +172,7 @@ public class OrderItem {
     this.name = name;
   }
 
-  public OrderItem description(String description) {
+  public OrdersItems description(String description) {
     this.description = description;
     return this;
   }
@@ -190,7 +190,7 @@ public class OrderItem {
     this.description = description;
   }
 
-  public OrderItem unitPrice(Integer unitPrice) {
+  public OrdersItems unitPrice(Integer unitPrice) {
     this.unitPrice = unitPrice;
     return this;
   }
@@ -208,7 +208,7 @@ public class OrderItem {
     this.unitPrice = unitPrice;
   }
 
-  public OrderItem quantity(Integer quantity) {
+  public OrdersItems quantity(Integer quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -226,7 +226,7 @@ public class OrderItem {
     this.quantity = quantity;
   }
 
-  public OrderItem unitOfMeasure(UnitOfMeasureEnum unitOfMeasure) {
+  public OrdersItems unitOfMeasure(UnitOfMeasureEnum unitOfMeasure) {
     this.unitOfMeasure = unitOfMeasure;
     return this;
   }
@@ -244,7 +244,7 @@ public class OrderItem {
     this.unitOfMeasure = unitOfMeasure;
   }
 
-  public OrderItem details(String details) {
+  public OrdersItems details(String details) {
     this.details = details;
     return this;
   }
@@ -262,7 +262,7 @@ public class OrderItem {
     this.details = details;
   }
 
-  public OrderItem createdAt(DateTime createdAt) {
+  public OrdersItems createdAt(DateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -280,7 +280,7 @@ public class OrderItem {
     this.createdAt = createdAt;
   }
 
-  public OrderItem updatedAt(DateTime updatedAt) {
+  public OrdersItems updatedAt(DateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -307,17 +307,17 @@ public class OrderItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrderItem orderItem = (OrderItem) o;
-    return Objects.equals(this.sku, orderItem.sku) &&
-        Objects.equals(this.skuType, orderItem.skuType) &&
-        Objects.equals(this.name, orderItem.name) &&
-        Objects.equals(this.description, orderItem.description) &&
-        Objects.equals(this.unitPrice, orderItem.unitPrice) &&
-        Objects.equals(this.quantity, orderItem.quantity) &&
-        Objects.equals(this.unitOfMeasure, orderItem.unitOfMeasure) &&
-        Objects.equals(this.details, orderItem.details) &&
-        Objects.equals(this.createdAt, orderItem.createdAt) &&
-        Objects.equals(this.updatedAt, orderItem.updatedAt);
+    OrdersItems ordersItems = (OrdersItems) o;
+    return Objects.equals(this.sku, ordersItems.sku) &&
+        Objects.equals(this.skuType, ordersItems.skuType) &&
+        Objects.equals(this.name, ordersItems.name) &&
+        Objects.equals(this.description, ordersItems.description) &&
+        Objects.equals(this.unitPrice, ordersItems.unitPrice) &&
+        Objects.equals(this.quantity, ordersItems.quantity) &&
+        Objects.equals(this.unitOfMeasure, ordersItems.unitOfMeasure) &&
+        Objects.equals(this.details, ordersItems.details) &&
+        Objects.equals(this.createdAt, ordersItems.createdAt) &&
+        Objects.equals(this.updatedAt, ordersItems.updatedAt);
   }
 
   @Override
@@ -329,7 +329,7 @@ public class OrderItem {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrderItem {\n");
+    sb.append("class OrdersItems {\n");
     
     sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
     sb.append("    skuType: ").append(toIndentedString(skuType)).append("\n");

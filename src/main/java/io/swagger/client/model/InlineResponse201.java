@@ -24,50 +24,29 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ErrorResponse
+ * InlineResponse201
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-28T14:20:55.281Z")
-public class ErrorResponse {
-  @SerializedName("code")
-  private String code = null;
+public class InlineResponse201 {
+  @SerializedName("id")
+  private String id = null;
 
-  @SerializedName("detail")
-  private String detail = null;
-
-  public ErrorResponse code(String code) {
-    this.code = code;
+  public InlineResponse201 id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Código de erro da aplicação.
-   * @return code
+   * Identificador do pedido.
+   * @return id
   **/
-  @ApiModelProperty(value = "Código de erro da aplicação.")
-  public String getCode() {
-    return code;
+  @ApiModelProperty(value = "Identificador do pedido.")
+  public String getId() {
+    return id;
   }
 
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public ErrorResponse detail(String detail) {
-    this.detail = detail;
-    return this;
-  }
-
-   /**
-   * Detalhe do erro da aplicação.
-   * @return detail
-  **/
-  @ApiModelProperty(value = "Detalhe do erro da aplicação.")
-  public String getDetail() {
-    return detail;
-  }
-
-  public void setDetail(String detail) {
-    this.detail = detail;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
@@ -79,24 +58,22 @@ public class ErrorResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorResponse errorResponse = (ErrorResponse) o;
-    return Objects.equals(this.code, errorResponse.code) &&
-        Objects.equals(this.detail, errorResponse.detail);
+    InlineResponse201 inlineResponse201 = (InlineResponse201) o;
+    return Objects.equals(this.id, inlineResponse201.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, detail);
+    return Objects.hash(id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorResponse {\n");
+    sb.append("class InlineResponse201 {\n");
     
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

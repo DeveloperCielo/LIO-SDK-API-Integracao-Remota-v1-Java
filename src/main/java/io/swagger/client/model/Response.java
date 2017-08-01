@@ -14,14 +14,19 @@
 package io.swagger.client.model;
 
 import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Response
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-03-09T14:44:13.421Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-28T14:20:55.281Z")
 public class Response {
   @SerializedName("id")
   private String id = null;
@@ -35,7 +40,7 @@ public class Response {
    * Identificador do pedido.
    * @return id
   **/
-  @ApiModelProperty(example = "null", value = "Identificador do pedido.")
+  @ApiModelProperty(value = "Identificador do pedido.")
   public String getId() {
     return id;
   }

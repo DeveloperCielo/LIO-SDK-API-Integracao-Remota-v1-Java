@@ -24,17 +24,17 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ErrorResponse
+ * InlineResponse401
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-28T14:20:55.281Z")
-public class ErrorResponse {
+public class InlineResponse401 {
   @SerializedName("code")
   private String code = null;
 
   @SerializedName("detail")
   private String detail = null;
 
-  public ErrorResponse code(String code) {
+  public InlineResponse401 code(String code) {
     this.code = code;
     return this;
   }
@@ -52,7 +52,7 @@ public class ErrorResponse {
     this.code = code;
   }
 
-  public ErrorResponse detail(String detail) {
+  public InlineResponse401 detail(String detail) {
     this.detail = detail;
     return this;
   }
@@ -79,9 +79,9 @@ public class ErrorResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorResponse errorResponse = (ErrorResponse) o;
-    return Objects.equals(this.code, errorResponse.code) &&
-        Objects.equals(this.detail, errorResponse.detail);
+    InlineResponse401 inlineResponse401 = (InlineResponse401) o;
+    return Objects.equals(this.code, inlineResponse401.code) &&
+        Objects.equals(this.detail, inlineResponse401.detail);
   }
 
   @Override
@@ -93,7 +93,7 @@ public class ErrorResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorResponse {\n");
+    sb.append("class InlineResponse401 {\n");
     
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    detail: ").append(toIndentedString(detail)).append("\n");

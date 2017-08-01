@@ -24,50 +24,51 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ErrorResponse
+ * Produto secundário.
  */
+@ApiModel(description = "Produto secundário.")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-07-28T14:20:55.281Z")
-public class ErrorResponse {
-  @SerializedName("code")
-  private String code = null;
+public class OrdersPaymentProductSub {
+  @SerializedName("number")
+  private Integer number = null;
 
-  @SerializedName("detail")
-  private String detail = null;
+  @SerializedName("name")
+  private String name = null;
 
-  public ErrorResponse code(String code) {
-    this.code = code;
+  public OrdersPaymentProductSub number(Integer number) {
+    this.number = number;
     return this;
   }
 
    /**
-   * Código de erro da aplicação.
-   * @return code
+   * Identificação numérica do produto primário da Cielo.
+   * @return number
   **/
-  @ApiModelProperty(value = "Código de erro da aplicação.")
-  public String getCode() {
-    return code;
+  @ApiModelProperty(required = true, value = "Identificação numérica do produto primário da Cielo.")
+  public Integer getNumber() {
+    return number;
   }
 
-  public void setCode(String code) {
-    this.code = code;
+  public void setNumber(Integer number) {
+    this.number = number;
   }
 
-  public ErrorResponse detail(String detail) {
-    this.detail = detail;
+  public OrdersPaymentProductSub name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Detalhe do erro da aplicação.
-   * @return detail
+   * Nome do produto primário utilizado.
+   * @return name
   **/
-  @ApiModelProperty(value = "Detalhe do erro da aplicação.")
-  public String getDetail() {
-    return detail;
+  @ApiModelProperty(required = true, value = "Nome do produto primário utilizado.")
+  public String getName() {
+    return name;
   }
 
-  public void setDetail(String detail) {
-    this.detail = detail;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -79,24 +80,24 @@ public class ErrorResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ErrorResponse errorResponse = (ErrorResponse) o;
-    return Objects.equals(this.code, errorResponse.code) &&
-        Objects.equals(this.detail, errorResponse.detail);
+    OrdersPaymentProductSub ordersPaymentProductSub = (OrdersPaymentProductSub) o;
+    return Objects.equals(this.number, ordersPaymentProductSub.number) &&
+        Objects.equals(this.name, ordersPaymentProductSub.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, detail);
+    return Objects.hash(number, name);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ErrorResponse {\n");
+    sb.append("class OrdersPaymentProductSub {\n");
     
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+    sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }
