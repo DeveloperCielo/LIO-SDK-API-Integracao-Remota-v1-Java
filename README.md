@@ -1,4 +1,4 @@
-# swagger-java-client
+# swagger-java-client - DEPRECATED
 
 ## Requirements
 
